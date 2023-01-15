@@ -28,7 +28,7 @@ app.get("/", function (req, res) {
 app.post("/api/movies", function (req, res) {
     db.addNewMovie(req.body)
         .then((data) => {
-            res.json(data);
+            res.status(201).json(data);
         })
         .catch((err) => {
             res.status(500).json({ errorMessage: "Fail to add new movie" });
@@ -83,11 +83,15 @@ app.delete("/api/movies/:id", function (req, res) {
     const queryId = req.params.id;
     db.deleteMovieById(queryId)
         .then((data) => {
-            res.json({ message: "success to delete the movie" });
+            res.status(200).json({ message: "success to delete the movie" });
         })
         .catch(() => {
             res.status(500).json({ errorMessage: "Fail to delete the movie" });
         });
+});
+
+app.use((req, res) => {
+    res.status(404).send("Resource not found");
 });
 
 db.initialize(process.env.MONGODB_CONN_STRING)
