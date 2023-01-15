@@ -51,7 +51,7 @@ app.get("/api/movies", function (req, res) {
                 });
             });
     } else {
-        res.json({ errorMessage: "Don't forget page and perPage parameters" });
+        console.log("ERROR: Don't forget page and perPage parameters");
     }
 });
 
