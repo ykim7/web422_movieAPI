@@ -69,9 +69,9 @@ app.get("/api/movies/:id", function (req, res) {
 });
 
 app.put("/api/movies/:id", function (req, res) {
-    const queryId = res.params.id;
+    const queryId = req.params.id;
     db.updateMovieById(req.body, queryId)
-        .then(() => {
+        .then((data) => {
             res.json({ message: "Success to update the movie" });
         })
         .catch(() => {
@@ -80,9 +80,9 @@ app.put("/api/movies/:id", function (req, res) {
 });
 
 app.delete("/api/movies/:id", function (req, res) {
-    const queryId = res.params.id;
+    const queryId = req.params.id;
     db.deleteMovieById(queryId)
-        .then(() => {
+        .then((data) => {
             res.json({ message: "success to delete the movie" });
         })
         .catch(() => {
