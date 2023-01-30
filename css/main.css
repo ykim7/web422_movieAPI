@@ -1,0 +1,4 @@
+#moviesTable tbody tr:hover {
+    cursor: pointer;
+    background: lightgrey;
+}
