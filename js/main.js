@@ -102,9 +102,6 @@ function addClickEventNDisplay() {
                     document.querySelector(
                         "#detailsModal .modal-title"
                     ).innerHTML = data.title;
-                    console.log("여기까진왔지?");
-                    console.log(data.poster);
-                    console.log(data._id);
                     if (data.poster) {
                         document.querySelector(
                             "#detailsModal .modal-body"
